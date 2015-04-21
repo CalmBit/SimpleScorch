@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SimpleScorch.Managers.GUI;
 
 namespace SimpleScorch
 {
@@ -18,11 +19,13 @@ namespace SimpleScorch
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public static ManagerContainer managerContainer;
 
         public SimpleScorch()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            managerContainer = new ManagerContainer();
         }
 
         /// <summary>
@@ -47,7 +50,16 @@ namespace SimpleScorch
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            //THIS IS WHERE MANAGERS WITH ONLOAD REQUIREMENTS SHOULD BE LOADED - IF NOT, YOU WON'T BE ABLE
+            //TO SATISFY THE PARAM REQUIREMENTS. NULL REFERENCES GALORE!
+
+            GUIManager gui = new GUIManager();
+            gui.OnLoad(this.Content);
+            TextBox textbox = new TextBox(new Vector2(128, 128), "A package for a... Ms.Alice?", true);
+            TextBox textbox2 = new TextBox(new Vector2(128, 228), "I'm a Ms. Alice.\nWhat of it?", false);
+            gui.currentWindows.Add("TestTextBox", textbox);
+            gui.currentWindows.Add("TestTextBox2", textbox2);
+            managerContainer.RegisterManager("GUI", gui);       
         }
 
         /// <summary>
@@ -70,7 +82,8 @@ namespace SimpleScorch
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            managerContainer.UpdateAll(gameTime);
+
 
             base.Update(gameTime);
         }
@@ -83,7 +96,7 @@ namespace SimpleScorch
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            managerContainer.RenderAll(spriteBatch);
 
             base.Draw(gameTime);
         }

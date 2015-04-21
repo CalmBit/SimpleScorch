@@ -5,7 +5,24 @@ using System.Text;
 
 namespace SimpleScorch
 {
-    class Level
+    /// <summary>
+    /// Handling all the basics:
+    ///     - Tile Layout
+    ///     - Entity Loading
+    ///     - Entity Presence
+    /// Ticks should be directed to this object.
+    /// 
+    /// </summary>
+    public class Level
     {
+        public Level()
+        {
+
+        }
+
+        public void TickLevel()
+        {
+            //TODO: Tick everything
+        }
     }
 }
