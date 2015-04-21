@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleScorch", "SimpleScorch\SimpleScorch\SimpleScorch.csproj", "{5927632B-8AD7-4EAD-9E50-931AFF4CB340}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SimpleScorchContent", "SimpleScorch\SimpleScorchContent\SimpleScorchContent.contentproj", "{9CD9359C-74DC-433F-9BC1-2F305ED06C47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5927632B-8AD7-4EAD-9E50-931AFF4CB340}.Debug|x86.ActiveCfg = Debug|x86
+		{5927632B-8AD7-4EAD-9E50-931AFF4CB340}.Debug|x86.Build.0 = Debug|x86
+		{5927632B-8AD7-4EAD-9E50-931AFF4CB340}.Release|x86.ActiveCfg = Release|x86
+		{5927632B-8AD7-4EAD-9E50-931AFF4CB340}.Release|x86.Build.0 = Release|x86
+		{9CD9359C-74DC-433F-9BC1-2F305ED06C47}.Debug|x86.ActiveCfg = Debug|x86
+		{9CD9359C-74DC-433F-9BC1-2F305ED06C47}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
